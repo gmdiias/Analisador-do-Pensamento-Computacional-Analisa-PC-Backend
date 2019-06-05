@@ -1,15 +1,11 @@
 package com.gmdiias.avaliacao;
 
+import java.util.List;
+
 public class Avaliacao {
-	
-	
-	
-	
-	
-	public static int validaCondicao(String codReceived) {
-		if(codReceived.contains("if")) {
-			return 1;
-		}
-		return 0;
+
+	public static boolean validaCondicao(String codReceived, List<String> listBanana) {
+		return listBanana.stream().anyMatch(banana -> codReceived.contains(banana));
 	}
+	
 }
