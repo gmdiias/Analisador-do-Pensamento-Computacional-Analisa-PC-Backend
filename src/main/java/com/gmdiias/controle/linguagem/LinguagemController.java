@@ -1,4 +1,4 @@
-package com.gmdiias.linguagem;
+package com.gmdiias.controle.linguagem;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

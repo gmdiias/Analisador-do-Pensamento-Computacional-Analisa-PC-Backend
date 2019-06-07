@@ -1,4 +1,4 @@
-package com.gmdiias.linguagem;
+package com.gmdiias.controle.linguagem;
 
 import javax.transaction.Transactional;
 

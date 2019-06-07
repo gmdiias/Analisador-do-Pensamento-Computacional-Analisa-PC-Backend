@@ -1,19 +1,21 @@
-package com.gmdiias.avaliacao;
+package com.gmdiias.controle.avaliacao;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.Collections;
+import java.util.Set;
 
 import org.junit.Test;
+
+import com.gmdiias.controle.atributos.ExpressaoRegular;
 
 public class LogicalThinkingTest {
 
 	@Test
 	public void avaliacaoSemIfTest() {
 
-		List<String> analise = Arrays.asList(" if ");
+		Set<ExpressaoRegular> analise = Collections.singleton(new ExpressaoRegular(" if "));
 		
 		StringBuilder codigo = new StringBuilder();
 		codigo.append("void main()\r\n");
@@ -22,14 +24,14 @@ public class LogicalThinkingTest {
 		codigo.append("   a = 3 + 2;\r\n");
 		codigo.append("}");
 
-		boolean response = Avaliacao.validaCondicao(codigo.toString(), analise);
+		boolean response = AvaliacaoService.verificaCondicao(codigo.toString(), analise);
 		assertFalse(response);
 	}
 	
 	@Test
 	public void avaliacaoErroIfTest() {
 		
-		List<String> analise = Arrays.asList(" if ");
+		Set<ExpressaoRegular> analise = Collections.singleton(new ExpressaoRegular(" if "));
 		
 		StringBuilder codigo = new StringBuilder();
 		codigo.append("void main()\r\n");
@@ -39,14 +41,14 @@ public class LogicalThinkingTest {
 		codigo.append("   printf(\"iftestando %i\", a);\r\n");
 		codigo.append("}");
 
-		boolean response = Avaliacao.validaCondicao(codigo.toString(), analise);
+		boolean response = AvaliacaoService.verificaCondicao(codigo.toString(), analise);
 		assertFalse(response);
 	}
 
 	@Test
 	public void avaliacaoComIfSimplesTest() {
 		
-		List<String> analise = Arrays.asList(" if ");
+		Set<ExpressaoRegular> analise = Collections.singleton(new ExpressaoRegular(" if "));
 		
 		StringBuilder codigo = new StringBuilder();
 		codigo.append("void main()\r\n");
@@ -59,13 +61,13 @@ public class LogicalThinkingTest {
 		codigo.append("   printf(\"%i\", a);\r\n");
 		codigo.append("}");
 
-		boolean avalia = Avaliacao.validaCondicao(codigo.toString(), analise);
+		boolean avalia = AvaliacaoService.verificaCondicao(codigo.toString(), analise);
 		assertTrue(avalia);
 	}
 	
 	@Test
 	public void avaliacaoComIfElseTest() {
-		List<String> analise = Arrays.asList(" else ");
+		Set<ExpressaoRegular> analise = Collections.singleton(new ExpressaoRegular(" else "));
 		
 		StringBuilder codigo = new StringBuilder();
 		codigo.append("void main()\r\n");
@@ -81,13 +83,13 @@ public class LogicalThinkingTest {
 		codigo.append("   printf(\"%i\", a);\r\n");
 		codigo.append("}");
 
-		boolean avalia = Avaliacao.validaCondicao(codigo.toString(), analise);
+		boolean avalia = AvaliacaoService.verificaCondicao(codigo.toString(), analise);
 		assertTrue(avalia);
 	}
 	
 	@Test
 	public void avaliacaoOperador() {
-		List<String> analise = Arrays.asList(" && ", " || ", "!");
+		Set<ExpressaoRegular> analise = Collections.singleton(new ExpressaoRegular(" && "));
 		
 		StringBuilder codigo = new StringBuilder();
 		codigo.append("void main()\r\n");
@@ -103,7 +105,7 @@ public class LogicalThinkingTest {
 		codigo.append("   printf(\"%i\", a);\r\n");
 		codigo.append("}");
 		
-		boolean avalia = Avaliacao.validaCondicao(codigo.toString(), analise);
+		boolean avalia = AvaliacaoService.verificaCondicao(codigo.toString(), analise);
 		assertTrue(avalia);
 	}
 

@@ -1,4 +1,4 @@
-package com.gmdiias.linguagem.logicalthinking;
+package com.gmdiias.controle.linguagem;
 
 import javax.transaction.Transactional;
 
@@ -8,6 +8,6 @@ import com.gmdiias.basic.BasicService;
 
 @Service
 @Transactional
-public class LogicalThinkingService extends BasicService<LogicalThinking, LogicalThinkingRepository> {
+public class LinguagemService extends BasicService<Linguagem, LinguagemRepository>{
 
 }
