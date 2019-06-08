@@ -1,6 +1,10 @@
 package com.gmdiias.controle.analise;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import com.gmdiias.basic.BasicEntity;
 import com.gmdiias.controle.avaliacao.Resultado;
@@ -11,8 +15,10 @@ public class CasoTeste extends BasicEntity {
 
 	private static final long serialVersionUID = 1L;
 
+	@ManyToOne
 	private Linguagem linguagem;
 	private String codigo;
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Resultado avaliacao;
 	
 	public CasoTeste() {

@@ -28,7 +28,6 @@ public class LinguagemTest {
 
 		Linguagem linguagemC = new Linguagem();
 		ExpressaoRegular condicao = new ExpressaoRegular(" if ");
-		
 		linguagemC.setCondicionais(Collections.singleton(condicao));
 		Linguagem saved = lgService.save(linguagemC);
 		
