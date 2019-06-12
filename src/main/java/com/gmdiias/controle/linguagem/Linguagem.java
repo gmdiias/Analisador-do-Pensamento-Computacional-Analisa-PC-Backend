@@ -16,6 +16,7 @@ public class Linguagem extends BasicEntity {
 
 	private static final long serialVersionUID = 1L;
 	
+	private String nome;
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "condicionais") 
 	private Set<ExpressaoRegular> condicionais;
@@ -28,6 +29,14 @@ public class Linguagem extends BasicEntity {
 	
 	public Linguagem() {
 		
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	
 	public Set<ExpressaoRegular> getCondicionais() {
