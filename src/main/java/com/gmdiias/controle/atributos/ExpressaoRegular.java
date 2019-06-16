@@ -11,6 +11,10 @@ public class ExpressaoRegular extends BasicEntity {
 
 	private String expressao;
 	
+	public ExpressaoRegular() {
+		
+	}
+	
 	public ExpressaoRegular(String expressao) {
 		this.expressao = expressao;
 	}
