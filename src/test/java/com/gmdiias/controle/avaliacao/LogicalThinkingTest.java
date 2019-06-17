@@ -15,7 +15,7 @@ public class LogicalThinkingTest {
 	@Test
 	public void avaliacaoSemIfTest() {
 
-		Set<ExpressaoRegular> analise = Collections.singleton(new ExpressaoRegular(" if "));
+		Set<ExpressaoRegular> analise = Collections.singleton(new ExpressaoRegular("(\\s+|^[\\W]*)[if]+\\s*[(]+"));
 		
 		StringBuilder codigo = new StringBuilder();
 		codigo.append("void main()\r\n");
@@ -31,7 +31,7 @@ public class LogicalThinkingTest {
 	@Test
 	public void avaliacaoErroIfTest() {
 		
-		Set<ExpressaoRegular> analise = Collections.singleton(new ExpressaoRegular(" if "));
+		Set<ExpressaoRegular> analise = Collections.singleton(new ExpressaoRegular("(\\s+|^[\\W]*)[if]+\\s*[(]+"));
 		
 		StringBuilder codigo = new StringBuilder();
 		codigo.append("void main()\r\n");
@@ -48,7 +48,7 @@ public class LogicalThinkingTest {
 	@Test
 	public void avaliacaoComIfSimplesTest() {
 		
-		Set<ExpressaoRegular> analise = Collections.singleton(new ExpressaoRegular(" if "));
+		Set<ExpressaoRegular> analise = Collections.singleton(new ExpressaoRegular("(?:.*)(\\s+|^[\\W]*)if(\\s+|^[\\W]*)(?:.*)"));
 		
 		StringBuilder codigo = new StringBuilder();
 		codigo.append("void main()\r\n");
@@ -67,7 +67,7 @@ public class LogicalThinkingTest {
 	
 	@Test
 	public void avaliacaoComIfElseTest() {
-		Set<ExpressaoRegular> analise = Collections.singleton(new ExpressaoRegular(" else "));
+		Set<ExpressaoRegular> analise = Collections.singleton(new ExpressaoRegular("(\\s+|^[\\W]*)[else]+(\\s+|^[\\W]*)"));
 		
 		StringBuilder codigo = new StringBuilder();
 		codigo.append("void main()\r\n");
@@ -89,7 +89,7 @@ public class LogicalThinkingTest {
 	
 	@Test
 	public void avaliacaoOperador() {
-		Set<ExpressaoRegular> analise = Collections.singleton(new ExpressaoRegular(" && "));
+		Set<ExpressaoRegular> analise = Collections.singleton(new ExpressaoRegular("(?:.*)(\\s+|^[\\W]*)else(\\s+|^[\\W]*)(?:.*)"));
 		
 		StringBuilder codigo = new StringBuilder();
 		codigo.append("void main()\r\n");
