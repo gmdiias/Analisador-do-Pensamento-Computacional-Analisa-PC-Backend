@@ -15,6 +15,7 @@ public class CasoTeste extends BasicEntity {
 
 	private static final long serialVersionUID = 1L;
 
+	private String nome;
 	@ManyToOne
 	private Linguagem linguagem;
 	private String codigo;
@@ -23,6 +24,14 @@ public class CasoTeste extends BasicEntity {
 	
 	public CasoTeste() {
 		
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	
 	public Linguagem getLinguagem() {
@@ -54,5 +63,7 @@ public class CasoTeste extends BasicEntity {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
 
 }

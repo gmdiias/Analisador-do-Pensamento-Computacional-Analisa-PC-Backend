@@ -58,14 +58,14 @@ public abstract class BasicController<T extends BasicEntity, R extends BasicRepo
 
 	@PutMapping
 	public ResponseEntity<T> update(@RequestBody T recurso) {
-		Optional<T> updted = this.service.findOne(recurso.id);
-
-		if (updted.isPresent()) {
-			T entity = updted.get();
-			entity.mergeEntity(recurso);
-			T saved = this.service.save(entity);
-			return ResponseEntity.ok().body(saved);
-		}
+//		Optional<T> updted = this.service.findOne(recurso.id);
+//
+//		if (updted.isPresent()) {
+//			T entity = updted.get();
+//			entity.mergeEntity(recurso);
+//			T saved = this.service.save(entity);
+//			return ResponseEntity.ok().body(saved);
+//		}
 
 		T saved = this.service.save(recurso);
 		return ResponseEntity.ok().body(saved);

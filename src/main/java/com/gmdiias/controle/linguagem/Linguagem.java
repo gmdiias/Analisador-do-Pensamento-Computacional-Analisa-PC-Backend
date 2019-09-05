@@ -17,6 +17,8 @@ public class Linguagem extends BasicEntity {
 	private static final long serialVersionUID = 1L;
 	
 	private String nome;
+	
+	// Esta parte refere-se a avaliacao da Logica
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "condicionais") 
 	private Set<ExpressaoRegular> condicionais;
@@ -26,6 +28,12 @@ public class Linguagem extends BasicEntity {
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "operadores") 
 	private Set<ExpressaoRegular> operadoresLogicos;
+	
+	
+	// Esta parte refere-se a Controle de Fluxo
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "operadores") 
+	private Set<ExpressaoRegular> loops;
 	
 	public Linguagem() {
 		

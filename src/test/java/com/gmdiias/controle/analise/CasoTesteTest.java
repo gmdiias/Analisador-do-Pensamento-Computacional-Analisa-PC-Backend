@@ -42,9 +42,9 @@ public class CasoTesteTest {
 		codigo.append("}");
 		
 		Linguagem linguagemC = new Linguagem();
-		ExpressaoRegular condicao = new ExpressaoRegular("(?:.*)(\\s+|^[\\W]*)if(\\s+|^[\\W]*)(?:.*)");
-		ExpressaoRegular condicaoComplexa = new ExpressaoRegular(" else ");
-		ExpressaoRegular operadores = new ExpressaoRegular(" && ");
+		ExpressaoRegular condicao = new ExpressaoRegular("(?:.*)(\\s+|^[\\W]*)if(\\s+|^[\\W]*)(?:.*)(.|\\s)*");
+		ExpressaoRegular condicaoComplexa = new ExpressaoRegular("(?:.*)(\\s+|^[\\W]*)else(\\s+|^[\\W]*)(?:.*)(.|\\s)*");
+		ExpressaoRegular operadores = new ExpressaoRegular("(?:.*)(\\s+|^[\\W]*)&&(\\s+|^[\\W]*)(?:.*)(.|\\s)*");
 		linguagemC.setCondicionais(Collections.singleton(condicao));
 		linguagemC.setCondicionaisComplexos(Collections.singleton(condicaoComplexa));
 		linguagemC.setOperadoresLogicos(Collections.singleton(operadores));
