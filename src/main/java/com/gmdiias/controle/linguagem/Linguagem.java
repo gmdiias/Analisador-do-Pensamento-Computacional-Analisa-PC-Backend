@@ -1,72 +1,148 @@
 package com.gmdiias.controle.linguagem;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 
 import com.gmdiias.basic.BasicEntity;
-import com.gmdiias.controle.atributos.ExpressaoRegular;
 
 @Entity
-public class Linguagem extends BasicEntity { 
+public class Linguagem extends BasicEntity {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private String nome;
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "condicionais") 
-	private Set<ExpressaoRegular> condicionais;
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "condicionais_complexos") 
-	private Set<ExpressaoRegular> condicionaisComplexos;
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "operadores") 
-	private Set<ExpressaoRegular> operadoresLogicos;
-	
+
+	// Esta parte refere-se a avaliacao da Logica
+	private String condicional;
+	private String condicionalComplexo;
+	private String operadorLogico;
+
+	// Esta parte refere-se a Controle de Fluxo
+	private String sequencial;
+	private String loop;
+	private String loopComplexo;
+
+	// Esta parte refere-se a Representação de Dados
+	private String valorFixo;
+	private String variavel;
+	private String lista;
+
+	// Esta parte refere-se a Abstração e Decomposição
+	private String sequenciais;
+	private String multiFuncoes;
+	private String modulos;
+
 	public Linguagem() {
-		
+
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
-	
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-	public Set<ExpressaoRegular> getCondicionais() {
-		return condicionais;
+
+	public String getCondicional() {
+		return condicional;
 	}
 
-	public void setCondicionais(Set<ExpressaoRegular> condicionais) {
-		this.condicionais = condicionais;
+	public void setCondicional(String condicional) {
+		this.condicional = condicional;
 	}
 
-	public Set<ExpressaoRegular> getCondicionaisComplexos() {
-		return condicionaisComplexos;
+	public String getCondicionalComplexo() {
+		return condicionalComplexo;
 	}
 
-	public void setCondicionaisComplexos(Set<ExpressaoRegular> condicionaisComplexos) {
-		this.condicionaisComplexos = condicionaisComplexos;
+	public void setCondicionalComplexo(String condicionalComplexo) {
+		this.condicionalComplexo = condicionalComplexo;
 	}
 
-	public Set<ExpressaoRegular> getOperadoresLogicos() {
-		return operadoresLogicos;
+	public String getOperadorLogico() {
+		return operadorLogico;
 	}
 
-	public void setOperadoresLogicos(Set<ExpressaoRegular> operadoresLogicos) {
-		this.operadoresLogicos = operadoresLogicos;
+	public void setOperadorLogico(String operadorLogico) {
+		this.operadorLogico = operadorLogico;
+	}
+
+	public String getSequencial() {
+		return sequencial;
+	}
+
+	public void setSequencial(String sequencial) {
+		this.sequencial = sequencial;
+	}
+
+	public String getLoop() {
+		return loop;
+	}
+
+	public void setLoop(String loop) {
+		this.loop = loop;
+	}
+
+	public String getLoopComplexo() {
+		return loopComplexo;
+	}
+
+	public void setLoopComplexo(String loopComplexo) {
+		this.loopComplexo = loopComplexo;
+	}
+
+	public String getValorFixo() {
+		return valorFixo;
+	}
+
+	public void setValorFixo(String valorFixo) {
+		this.valorFixo = valorFixo;
+	}
+
+	public String getVariavel() {
+		return variavel;
+	}
+
+	public void setVariavel(String variavel) {
+		this.variavel = variavel;
+	}
+
+	public String getLista() {
+		return lista;
+	}
+
+	public void setLista(String lista) {
+		this.lista = lista;
+	}
+
+	public String getSequenciais() {
+		return sequenciais;
+	}
+
+	public void setSequenciais(String sequenciais) {
+		this.sequenciais = sequenciais;
+	}
+
+	public String getMultiFuncoes() {
+		return multiFuncoes;
+	}
+
+	public void setMultiFuncoes(String multiFuncoes) {
+		this.multiFuncoes = multiFuncoes;
+	}
+
+	public String getModulos() {
+		return modulos;
+	}
+
+	public void setModulos(String modulos) {
+		this.modulos = modulos;
 	}
 
 	@Override
 	public void mergeEntity(Object received) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

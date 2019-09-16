@@ -1,6 +1,7 @@
 package com.gmdiias.controle.analise;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
@@ -15,14 +16,24 @@ public class CasoTeste extends BasicEntity {
 
 	private static final long serialVersionUID = 1L;
 
+	private String nome;
 	@ManyToOne
 	private Linguagem linguagem;
+	@Column(length = 5000)
 	private String codigo;
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Resultado avaliacao;
 	
 	public CasoTeste() {
 		
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	
 	public Linguagem getLinguagem() {
@@ -54,5 +65,7 @@ public class CasoTeste extends BasicEntity {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
 
 }

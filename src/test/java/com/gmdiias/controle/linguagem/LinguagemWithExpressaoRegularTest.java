@@ -18,7 +18,7 @@ import com.gmdiias.controle.avaliacao.AvaliacaoService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class LinguagemTest {
+public class LinguagemWithExpressaoRegularTest {
 
 	@Autowired
 	LinguagemService lgService;
@@ -38,7 +38,13 @@ public class LinguagemTest {
 		boolean result = AvaliacaoService.verificaCondicao(" if (", saved.getCondicionais());
 		assertTrue(result);
 		
-		boolean result2 = AvaliacaoService.verificaCondicao(" asdasdasd ", saved.getCondicionais());
+		boolean result2 = AvaliacaoService.verificaCondicao(" if ", saved.getCondicionais());
 		assertFalse(result2);
+		
+		boolean result3 = AvaliacaoService.verificaCondicao("if (", saved.getCondicionais());
+		assertTrue(result3);
+		
+		boolean result4 = AvaliacaoService.verificaCondicao(" sif (", saved.getCondicionais());
+		assertFalse(result4);
 	}
 }
