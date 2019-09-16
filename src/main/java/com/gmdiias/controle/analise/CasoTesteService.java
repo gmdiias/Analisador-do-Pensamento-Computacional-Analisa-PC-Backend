@@ -19,31 +19,37 @@ public class CasoTesteService extends BasicService<CasoTeste, CasoTesteRepositor
 
 	@Autowired
 	LinguagemService linguagemService;
-	
+
 	public Resultado realizaAvaliacaoDoCasoDeTeste(CasoTeste caso) {
-		
-		Resultado resultado = new Resultado();
-		
-		boolean condiconal = AvaliacaoService.verificaCondicao(caso.getCodigo(), caso.getLinguagem().getCondicionais());
-		boolean condicionalComplexa = AvaliacaoService.verificaCondicao(caso.getCodigo(), caso.getLinguagem().getCondicionaisComplexos());
-		boolean operador = AvaliacaoService.verificaCondicao(caso.getCodigo(), caso.getLinguagem().getOperadoresLogicos());
-		resultado.setHasCondicional(condiconal);
-		resultado.setHasCondicionalComplexo(condicionalComplexa);
-		resultado.setHasOperadores(operador);
-		
+
+		boolean condiconal = AvaliacaoService.verificaCondicao(caso.getCodigo(), caso.getLinguagem().getCondicional());
+		boolean condicionalComplexa = AvaliacaoService.verificaCondicao(caso.getCodigo(), caso.getLinguagem().getCondicionalComplexo());
+		boolean operador = AvaliacaoService.verificaCondicao(caso.getCodigo(), caso.getLinguagem().getOperadorLogico());
+		boolean loops = AvaliacaoService.verificaCondicao(caso.getCodigo(), caso.getLinguagem().getLoop());
+		boolean loopsComplexos = AvaliacaoService.verificaCondicao(caso.getCodigo(), caso.getLinguagem().getLoopComplexo());
+		boolean valoresFixos = AvaliacaoService.verificaCondicao(caso.getCodigo(), caso.getLinguagem().getValorFixo());
+		boolean variaveis = AvaliacaoService.verificaCondicao(caso.getCodigo(), caso.getLinguagem().getVariavel());
+		boolean listas = AvaliacaoService.verificaCondicao(caso.getCodigo(), caso.getLinguagem().getLista());
+		boolean sequenciais = AvaliacaoService.verificaCondicao(caso.getCodigo(), caso.getLinguagem().getSequenciais());
+		boolean multiFuncoes = AvaliacaoService.verificaCondicao(caso.getCodigo(), caso.getLinguagem().getMultiFuncoes());
+		boolean modulos = AvaliacaoService.verificaCondicao(caso.getCodigo(), caso.getLinguagem().getModulos());
+
+		Resultado resultado = new Resultado(condiconal, condicionalComplexa, operador, loops, loopsComplexos,
+				sequenciais, valoresFixos, variaveis, listas, sequenciais, multiFuncoes, modulos);
+
 		return resultado;
 	}
-	
+
 	public CasoTeste save(CasoTeste entity) {
-		
+
 		Optional<Linguagem> opLinguagem = linguagemService.findOne(entity.getLinguagem().getId());
-		
-		if(opLinguagem.isPresent()) {
+
+		if (opLinguagem.isPresent()) {
 			entity.setLinguagem(opLinguagem.get());
 			entity.setAvaliacao(realizaAvaliacaoDoCasoDeTeste(entity));
 			return repository.save(entity);
 		}
-		
+
 		throw new RuntimeException("Linguagem não encontrada");
-    }
+	}
 }
