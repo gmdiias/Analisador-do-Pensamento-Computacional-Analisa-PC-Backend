@@ -1,5 +1,7 @@
 package com.gmdiias.controle.linguagem;
 
+
+
 import javax.persistence.Entity;
 
 import com.gmdiias.basic.BasicEntity;
@@ -138,11 +140,4 @@ public class Linguagem extends BasicEntity {
 	public void setModulos(String modulos) {
 		this.modulos = modulos;
 	}
-
-	@Override
-	public void mergeEntity(Object received) {
-		// TODO Auto-generated method stub
-
-	}
-
 }

@@ -174,13 +174,6 @@ public class Resultado extends BasicEntity {
 		total += hasMultiFuncoes ? 1 : 0;
 		total += hasModulos ? 1 : 0;
 		return total;
-	}
-
-	@Override
-	public void mergeEntity(Object received) {
-		// TODO Auto-generated method stub
-		
-	}
-	
+	}	
 	
 }
