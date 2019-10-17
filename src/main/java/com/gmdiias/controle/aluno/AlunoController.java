@@ -1,4 +1,4 @@
-package com.gmdiias.controle.linguagem;
+package com.gmdiias.controle.aluno;
 
 import java.util.List;
 
@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gmdiias.basic.BasicController;
 
 @RestController
-@RequestMapping("api/linguagem")
-public class LinguagemController extends BasicController<Linguagem, LinguagemRepository, LinguagemService> {
+@RequestMapping("api/aluno")
+public class AlunoController extends BasicController<Aluno, AlunoRepository, AlunoService> {
 
 	@GetMapping("autocomplete/{filtro}")
-	public ResponseEntity<List<Linguagem>> autocomplete(@PathVariable String filtro) {
+	public ResponseEntity<List<Aluno>> autocomplete(@PathVariable String filtro) {
 		
-		List<Linguagem> list = service.findByNomeLike(filtro);
+		List<Aluno> list = service.findAutocomplete(filtro);
 		return ResponseEntity.ok().body(list);
 	}
-
+	
 }

@@ -47,8 +47,6 @@ public abstract class BasicEntity implements Serializable {
 	public void setDataCriacao(Date dataCriacao) {
 		this.dataCriacao = dataCriacao;
 	}
-	
-	public abstract void mergeEntity(Object received);
 
 	@Override
 	public int hashCode() {

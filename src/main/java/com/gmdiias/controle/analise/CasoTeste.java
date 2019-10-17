@@ -8,6 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import com.gmdiias.basic.BasicEntity;
+import com.gmdiias.controle.aluno.Aluno;
 import com.gmdiias.controle.avaliacao.Resultado;
 import com.gmdiias.controle.linguagem.Linguagem;
 
@@ -23,6 +24,8 @@ public class CasoTeste extends BasicEntity {
 	private String codigo;
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Resultado avaliacao;
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private Aluno aluno;
 	
 	public CasoTeste() {
 		
@@ -59,13 +62,12 @@ public class CasoTeste extends BasicEntity {
 	public void setAvaliacao(Resultado avaliacao) {
 		this.avaliacao = avaliacao;
 	}
-	
-	@Override
-	public void mergeEntity(Object received) {
-		// TODO Auto-generated method stub
-		
+
+	public Aluno getAluno() {
+		return aluno;
 	}
 	
-	
-
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
 }
