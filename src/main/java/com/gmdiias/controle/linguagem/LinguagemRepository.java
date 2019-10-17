@@ -9,6 +9,6 @@ import com.gmdiias.basic.BasicRepository;
 @Transactional
 public interface LinguagemRepository extends BasicRepository<Linguagem>  {
 
-	List<Linguagem> findByNomeLikeIgnoreCase(String nome);
+	List<Linguagem> findTop5ByNomeLikeIgnoreCase(String nome);
 
 }

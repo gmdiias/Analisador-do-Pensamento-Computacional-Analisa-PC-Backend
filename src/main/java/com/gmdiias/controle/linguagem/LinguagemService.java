@@ -13,7 +13,7 @@ import com.gmdiias.basic.BasicService;
 public class LinguagemService extends BasicService<Linguagem, LinguagemRepository>{
 
 	public List<Linguagem> findByNomeLike(String nome){
-		return repository.findByNomeLikeIgnoreCase("%" + nome + "%");
+		return repository.findTop5ByNomeLikeIgnoreCase("%" + nome + "%");
 	}
 	
 }

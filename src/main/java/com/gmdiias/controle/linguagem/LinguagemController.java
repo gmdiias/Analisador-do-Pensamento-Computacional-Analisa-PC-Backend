@@ -15,7 +15,7 @@ import com.gmdiias.basic.BasicController;
 public class LinguagemController extends BasicController<Linguagem, LinguagemRepository, LinguagemService> {
 
 	@GetMapping("autocomplete/{filtro}")
-	public ResponseEntity<List<Linguagem>> countAll(@PathVariable String filtro) {
+	public ResponseEntity<List<Linguagem>> autocomplete(@PathVariable String filtro) {
 		
 		List<Linguagem> list = service.findByNomeLike(filtro);
 		return ResponseEntity.ok().body(list);
