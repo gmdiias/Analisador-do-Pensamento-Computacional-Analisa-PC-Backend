@@ -8,26 +8,26 @@ import com.gmdiias.basic.BasicEntity;
 public class Resultado extends BasicEntity {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private boolean hasCondicional;
 	private boolean hasCondicionalComplexo;
 	private boolean hasOperadores;
-	
+
 	private boolean hasLoops;
 	private boolean hasLoopsComplexo;
 	private boolean hasSequencial;
-	
+
 	private boolean hasValoresFixos;
 	private boolean hasVariaveis;
 	private boolean hasListas;
-	
+
 	private boolean hasSequenciais;
 	private boolean hasMultiFuncoes;
 	private boolean hasModulos;
-	
+
 	public Resultado() {
 	}
-	
+
 	public Resultado(boolean hasCondicional, boolean hasCondicionalComplexo, boolean hasOperadores, boolean hasLoops,
 			boolean hasLoopsComplexo, boolean hasSequencial, boolean hasValoresFixos, boolean hasVariaveis,
 			boolean hasListas, boolean hasSequenciais, boolean hasMultiFuncoes, boolean hasModulos) {
@@ -46,12 +46,10 @@ public class Resultado extends BasicEntity {
 		this.hasModulos = hasModulos;
 	}
 
-
-
 	public boolean getHasCondicional() {
 		return hasCondicional;
 	}
-	
+
 	public void setHasCondicional(boolean hasCondicional) {
 		this.hasCondicional = hasCondicional;
 	}
@@ -71,7 +69,7 @@ public class Resultado extends BasicEntity {
 	public void setHasOperadores(boolean hasOperadores) {
 		this.hasOperadores = hasOperadores;
 	}
-	
+
 	public boolean isHasLoops() {
 		return hasLoops;
 	}
@@ -119,7 +117,7 @@ public class Resultado extends BasicEntity {
 	public void setHasListas(boolean hasListas) {
 		this.hasListas = hasListas;
 	}
-	
+
 	public boolean isHasSequenciais() {
 		return hasSequenciais;
 	}
@@ -151,7 +149,7 @@ public class Resultado extends BasicEntity {
 		total += hasCondicionalComplexo ? 1 : 0;
 		return total;
 	}
-	
+
 	public int getResultadoControleFluxo() {
 		int total = 0;
 		total += hasLoops ? 1 : 0;
@@ -159,7 +157,7 @@ public class Resultado extends BasicEntity {
 		total += hasSequencial ? 1 : 0;
 		return total;
 	}
-	
+
 	public int getResultadoRepresentacao() {
 		int total = 0;
 		total += hasValoresFixos ? 1 : 0;
@@ -167,13 +165,18 @@ public class Resultado extends BasicEntity {
 		total += hasListas ? 1 : 0;
 		return total;
 	}
-	
+
 	public int getResultadoAbstracao() {
 		int total = 0;
 		total += hasSequenciais ? 1 : 0;
 		total += hasMultiFuncoes ? 1 : 0;
 		total += hasModulos ? 1 : 0;
 		return total;
-	}	
-	
+	}
+
+	public int getResultadoGeral() {
+		return getResultadoAbstracao() + getResultadoControleFluxo() + getResultadoLogica()
+				+ getResultadoRepresentacao();
+	}
+
 }
